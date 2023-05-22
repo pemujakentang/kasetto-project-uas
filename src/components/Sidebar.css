@@ -1,0 +1,11 @@
+.sidebar{
+    background-image: url('../assets/woodtexture.jpg');
+    overflow: hidden;
+    background-size:contain;
+    color:white;
+    height: 100%;
+}
+
+.logo{
+    width:100%;
+}

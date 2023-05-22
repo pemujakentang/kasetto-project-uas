@@ -1,0 +1,98 @@
+.playlists {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  max-height: 55vh;
+  min-height: 10vh;
+  max-width: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.playlists::-webkit-scrollbar {
+  display: none;
+}
+
+.playlist {
+  text-align: center;
+  display: flex;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  max-width: 100%;
+}
+.playlist:hover {
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.sidetape {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.sidetape img {
+  display: block;
+  max-width: 100%;
+}
+
+.textside {
+  position: absolute;
+  top: 55%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Handwriting", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@-webkit-keyframes swing {
+  25% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  50% {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+  }
+  75% {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes swing {
+  25% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  50% {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+  }
+  75% {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}

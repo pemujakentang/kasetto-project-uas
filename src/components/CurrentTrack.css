@@ -1,0 +1,41 @@
+.track {
+  max-width: 40vh;
+}
+.trackimage img {
+  width: 50%;
+}
+
+.tapeView {
+  width: 100%;
+}
+
+.trackinfo {
+  display: flex;
+  position: relative;
+}
+
+.trackinfo h4{
+    position: absolute;
+    left: 25%;
+    top: 5%;
+    width: 60%;
+    font-size: 25px;
+  font-weight: bold;
+  font-family: "Handwriting", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackinfo p{
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    width: 60%;
+    font-size: 20px;
+  font-weight: bold;
+  font-family: "Handwriting", sans-serif;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
