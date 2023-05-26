@@ -6,11 +6,18 @@
 }
 .spotify_body {
   display: grid;
-  grid-template-columns: 20% 80%;
+  
   background-color: rgb(170, 170, 170);
 }
-.body {
+.body_navbar {
   height: 100%;
   width: 100%;
   overflow:auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.body_contents {
+  flex-grow: 1;
+  width: 100%;
 }

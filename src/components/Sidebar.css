@@ -1,11 +1,45 @@
-.sidebar{
-    background-image: url('../assets/woodtexture.jpg');
-    overflow: hidden;
-    background-size:contain;
-    color:white;
-    height: 100%;
+.sidebar {
+  background-color:darksalmon;
+  overflow: hidden;
+  background-size: contain;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  transition: left 0.3s ease;
+  z-index: 1; 
 }
 
-.logo{
-    width:100%;
+.sidebarVisible {
+  left: 0;
+}
+
+.logo {
+  width: 235px;
+}
+
+.toggleButton {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+  background-color: gray;
+}
+
+
+@media screen and (min-width: 800px) {
+  .sidebar {
+    left: 0;
+  }
+
+  .toggleButton {
+    display: none;
+  }
 }

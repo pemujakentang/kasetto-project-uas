@@ -45,9 +45,9 @@ function Spotify() {
   }, [dispatch, token]);
   return (
     <div className="container">
-      <div className="spotify_body">
+
         <Sidebar />
-        <div className="body">
+        <div className="body_navbar">
           <Navbar />
           <div className="body_contents">
             <Routes>
@@ -69,7 +69,6 @@ function Spotify() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
