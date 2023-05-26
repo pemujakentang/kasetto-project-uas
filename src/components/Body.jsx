@@ -9,7 +9,7 @@ function Body() {
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] =
     useStateProvider();
   useEffect(() => {
-    const getInitialPlaylist = async () => {
+    const getPlaylist = async () => {
       const response = await axios
         .get(`https://api.spotify.com/v1/playlists/${selectedPlaylistId}`, {
           headers: {
@@ -24,7 +24,7 @@ function Body() {
             window.location = "/";
           }
         });
-        console.log(response)
+        console.log(response);
       const selectedPlaylist = {
         id: response.data.id,
         name: response.data.name,
@@ -34,28 +34,29 @@ function Body() {
           id: track.id,
           name: track.name,
           image: track.album.images[0] ? track.album.images[0].url : null,
-          contexturi: track.album.uri,
+          contexturi: response.data.uri,
           tracknumber: track.track_number,
           external_urls: track.external_urls.spotify,
+          trackuri: track.uri
         })),
       };
       // console.log(response);
-      // console.log(selectedPlaylist)
+      console.log(selectedPlaylist)
       dispatch({
         type: reducerCases.SET_PLAYLIST,
         selectedPlaylist,
       });
     };
-    getInitialPlaylist();
+    getPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
-  const playTrack = async (id, name, image, context_uri, track_number) => {
+  const playTrack = async (id, name, image, context_uri, track_number, uri) => {
     const response = await axios
       .put(
         `https://api.spotify.com/v1/me/player/play`,
         {
           context_uri,
           offset: {
-            position: track_number - 1,
+            uri: uri,
           },
           position_ms: 0,
         },
@@ -73,17 +74,23 @@ function Body() {
           window.location = "/";
         }
       });
-    if (response.status === 204) {
-      const currentPlaying = {
-        id,
-        name,
-        image,
-      };
-      dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
-      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
-    } else {
-      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
-    }
+
+      if (response) {
+        if (response.status === 204) {
+          const currentPlaying = {
+            id,
+            name,
+            image,
+          };
+          dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+          dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+        } else {
+          dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+        }
+      } else {
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+      }
+    
   };
   return (
     <div className="bodyView">
@@ -97,22 +104,38 @@ function Body() {
           </div>
 
           <ul className="trackView">
-            {selectedPlaylist.tracks.map(({ id, name, image, contexturi, tracknumber }) => (
-              <li
-                key={id}
-                onClick={() => playTrack(id, name, image, contexturi, tracknumber) }
-              >
-                <div className="sidetapetrack">
-                  <img
-                    className="cassette_side_track"
-                    src={cassette_side_blu}
-                    alt="ini gambar samping kaset"
-                  />
-                  <img className="songcover" src={image} alt="" />
-                  <div className="tracktitle">{name}</div>
-                </div>
-              </li>
-            ))}
+            {selectedPlaylist.tracks.map(
+              ({ id, name, image, contexturi, tracknumber, trackuri }) => (
+                <li className="viewSong" key={id}>
+                  <div
+                    className="sidetapetrack"
+                    onClick={() =>
+                      playTrack(
+                        id,
+                        name,
+                        image,
+                        contexturi,
+                        tracknumber,
+                        trackuri
+                      )
+                    }
+                  >
+                    <img
+                      className="cassette_side_track"
+                      src={cassette_side_blu}
+                      alt="ini gambar samping kaset"
+                    />
+                    <img className="songcover" src={image} alt="" />
+                    <div className="tracktitle">{name}</div>
+                  </div>
+                  <div className="dropdown">
+                    <div className="dropdown-content">
+                      <button>View Details</button>
+                    </div>
+                  </div>
+                </li>
+              )
+            )}
           </ul>
         </>
       )}

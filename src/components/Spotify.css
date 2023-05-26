@@ -6,7 +6,7 @@
 }
 .spotify_body {
   display: grid;
-  
+  grid-template-columns: 20vw 80vw;
   background-color: rgb(170, 170, 170);
 }
 .body_navbar {
