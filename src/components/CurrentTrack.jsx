@@ -3,7 +3,7 @@ import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 import tape from "../assets/cassette_front.png";
-import "./CurrentTrack.css"
+import "./CurrentTrack.css";
 
 function CurrentTrack(props) {
   const [{ token, currentlyPlaying }, dispatch] = useStateProvider();
@@ -35,17 +35,18 @@ function CurrentTrack(props) {
         type: reducerCases.SET_PLAYING,
         currentlyPlaying,
       });
-      console.log(currentlyPlaying);
+      // console.log(currentlyPlaying);
     } else {
       dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
     }
   };
   useEffect(() => {
-    setInterval(() => {
-      getCurrentTrack()
-    }, 5000);
+    const getInterval = setInterval(() => {
+      getCurrentTrack();
+    }, 1000);
     getCurrentTrack();
-  },[token, dispatch]);
+    return () => clearInterval(getInterval)
+  }, [token, dispatch]);
   // getCurrentTrack();
   return (
     <div>

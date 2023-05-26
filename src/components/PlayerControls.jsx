@@ -161,9 +161,68 @@ function PlayerControls(props) {
       shuffleState: !shuffleState,
     });
   };
+
+  useEffect(() => {
+    const getDevices = async () => {
+      const response = await axios
+        .get(`https://api.spotify.com/v1/me/player/devices`, {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        })
+        .catch((error) => {
+          // console.log(error);
+          // console.log(error.response.status)
+          if (error.response.status == 401) {
+            window.location = "/";
+          }
+        });
+      // console.log(response);
+    };
+    getDevices();
+  }, [token]);
+
+  const PlayHere = async () => {
+    const devInfo = await axios
+      .get(`https://api.spotify.com/v1/me/player/devices`, {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+      .catch((error) => {
+        // console.log(error);
+        // console.log(error.response.status)
+        if (error.response.status == 401) {
+          window.location = "/";
+        }
+      });
+    const { devices } = devInfo.data;
+    const target = devices.find(
+      (device) => device.name === "Spotify Web Player"
+    );
+    if (target) {
+      await axios.put(
+        `https://api.spotify.com/v1/me/player`,
+        {
+          device_ids: [target.id],
+          play: true,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+  };
   return (
     <div>
-      PlayerControls
+      <div className="playhere">
+        <button onClick={() => PlayHere()}>Play On This Device</button>
+      </div>
       <div className="state">
         {playerState ? (
           <button onClick={() => changeState()}>Pause</button>
@@ -184,6 +243,9 @@ function PlayerControls(props) {
           <button onClick={() => changeShuffle()}>Shuffle</button>
         )}
       </div>
+      {/* <div className="getDevices">
+        <button onClick={() => getDevices()}>Get Devices</button>
+      </div> */}
     </div>
   );
 }

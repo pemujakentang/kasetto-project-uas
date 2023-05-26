@@ -4,6 +4,8 @@ import { useStateProvider } from './utils/StateProvider';
 import { reducerCases } from './utils/Constants';
 import Main from './components/Spotify';
 import { BrowserRouter } from 'react-router-dom';
+import SpotifyPlayer from "react-spotify-web-playback";
+import Starter from './components/Starter';
 
 function App() {
   const [{ token }, dispatch] = useStateProvider()
@@ -25,6 +27,7 @@ function App() {
           }
         </div>
       </BrowserRouter>
+      <SpotifyPlayer token={token} />
     </div>
 
   );

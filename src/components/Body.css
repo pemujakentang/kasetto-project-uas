@@ -21,11 +21,15 @@
   justify-content: center;
   list-style-type: none;
   flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0 0 0 0;
 }
 .trackView li {
   padding-bottom: 0px;
   margin-bottom: 0px;
   cursor: pointer;
+  width: 30%;
+  min-width: 22rem;
 }
 .trackView li:hover {
   -webkit-animation: swing 1s ease;
@@ -75,14 +79,14 @@
 
 .sidetapetrack .cassette_side_track {
   display: block;
-  width: 24rem;
+  width: 100%;
 }
 
 .songcover{
     position: absolute;
     top: 15%;
     left: 5%;
-    width: 2.5rem;
+    height: 75%;
 }
 
 .dropdown{
@@ -137,6 +141,22 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.playlistName{
+  font-family: "Lumie", sans-serif;
+  font-weight:bolder;
+  font-size: 50px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.playlistDesc{
+  font-family: "Handwriting", sans-serif;
+  font-weight:bolder;
+  font-size: 25px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 @-webkit-keyframes swing {

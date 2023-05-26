@@ -24,13 +24,13 @@ function Navbar() {
       </div> */}
       <div>
         <NavLink to={`/#access_token=${token}`}>
-          <button id="gotoBody">Body</button>
+          <button id="gotoPlayer">Player</button>
         </NavLink>
         <NavLink to={`/search#access_token=${token}`}>
-          <button id="goToSearch">Search</button>
+          <button id="gotoSearch">Search</button>
         </NavLink>
-        <NavLink to={`/player#access_token=${token}`}>
-          <button id="goToPlayer">Player</button>
+        <NavLink to={`/playlist#access_token=${token}`}>
+          <button id="gotoBody">View Playlist</button>
         </NavLink>
       </div>
 

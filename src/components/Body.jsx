@@ -99,8 +99,8 @@ function Body() {
         <>
           <div className="titledesc">
             <div>
-              <h1>{selectedPlaylist.name}</h1>
-              <h3>{selectedPlaylist.description}</h3>
+              <h1 className="playlistName">{selectedPlaylist.name}</h1>
+              <h2 className="playlistDesc">{selectedPlaylist.description}</h2>
             </div>
           </div>
 

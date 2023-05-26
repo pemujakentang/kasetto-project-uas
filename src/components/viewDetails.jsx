@@ -67,17 +67,18 @@ function ViewDetails(props) {
             <img src={songDeets.image} alt={songDeets.name} />
             <div className="details-info">
               <h1>{songDeets.name}</h1>
-              <h2>{songDeets.duration}</h2>
+              <h3>Duration: {songDeets.duration}</h3>
               <div className="artists">
+                <h2><strong>Artists</strong></h2>
                 {songDeets.artists.map((artist) => (
-                  <div className="artist">{artist.name}</div>
+                  <h3 className="artist">{artist.name}</h3>
                 ))}
               </div>
               <div className="album_info">
                 <h2>Album Info</h2>
                 <h3>Name: {songDeets.album_name}</h3>
                 <h3>Type: {songDeets.album_type}</h3>
-                <h3>Release Date:{songDeets.release_date}</h3>
+                <h3>Release Date: {songDeets.release_date}</h3>
               </div>
               {/* <div className="actions">
                 <button className="buttonAlbum">

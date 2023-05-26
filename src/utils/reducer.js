@@ -4,13 +4,14 @@ export const initialState = {
     token: null,
     playlists: [],
     userInfo: null,
-    selectedPlaylistId: '3iaLfCc8uUaHJDZRB5HEsl',
+    selectedPlaylistId: '37i9dQZEVXbObFQZ3JLcXt',
     selectedPlaylist: null,
     searchResults: null,
     currentlyPlaying: null,
     playerState: false,
     playerStatus: null,
     shuffleState: false,
+    deviceId: null,
 };
 
 const reducer = (state, action) => {
@@ -73,6 +74,12 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 shuffleState: action.shuffleState
+            }
+        }
+        case reducerCases.SET_DEVICE_ID: {
+            return{
+                ...state,
+                deviceId: action.deviceId
             }
         }
         default: return state;

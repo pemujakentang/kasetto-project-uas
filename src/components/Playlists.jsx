@@ -48,7 +48,7 @@ function Playlists() {
         
         {playlists.map(({ name, id }) => {
           return (
-            <NavLink to={`/#access_token=${token}`}>
+            <NavLink to={`/playlist#access_token=${token}`}>
               <li className="playlist" key={id} onClick={() => changeCurrentPlaylist(id)}>
               <div className="sidetape">
                 <img

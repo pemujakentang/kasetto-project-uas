@@ -1,53 +1,52 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import "./Login.css";
 
 function Login() {
+  const [client_id, setClientId] = useState("");
+  const handleChange = (event) => {
+    setClientId(event.target.value);
+  };
   const handleClick = () => {
-    const clientId = "843015e76322448ca72fd3ed917669c1";
-    const redirectUrl = window.location.origin;
-    const apiUrl = "https://accounts.spotify.com/authorize";
-    const scope = [
-      "user-read-private",
-      "user-read-email",
-      "user-modify-playback-state",
-      "user-read-playback-state",
-      "user-read-currently-playing",
-      "user-read-recently-played",
-      "user-top-read",
-      "user-library-read",
-      "user-read-playback-position",
-      "playlist-read-private",
-      "playlist-read-collaborative",
-      "streaming",
-    ];
-    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
-      " "
-    )}&response_type=token&show_dialog=true`;
+    if (client_id.length == 32) {
+      const clientId = client_id;
+      console.log(clientId);
+      const redirectUrl = window.location.origin;
+      const apiUrl = "https://accounts.spotify.com/authorize";
+      const scope = [
+        "user-read-private",
+        "user-read-email",
+        "user-modify-playback-state",
+        "user-read-playback-state",
+        "user-read-currently-playing",
+        "user-read-recently-played",
+        "user-top-read",
+        "user-library-read",
+        "user-read-playback-position",
+        "playlist-read-private",
+        "playlist-read-collaborative",
+        "streaming",
+      ];
+      window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
+        " "
+      )}&response_type=token&show_dialog=true`;
+    } else {
+      alert("Invalid clientID");
+    }
   };
   return (
-    <Container>
-      <img src="" alt="" />
-      <button onClick={handleClick}>Login to Spotify</button>
-    </Container>
+    <div className="login_container">
+      <input
+        className="clientid_input"
+        id="id_input"
+        type="text"
+        placeholder="Input Client ID"
+        onChange={handleChange}
+      />
+      <button className="button" onClick={handleClick}>
+        Login to Spotify
+      </button>
+    </div>
   );
 }
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  button {
-    background-color: green;
-    color: white;
-    padding: 10px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 1rem 3rem;
-  }
-`;
 
 export default Login;

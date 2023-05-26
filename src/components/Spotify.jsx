@@ -12,7 +12,35 @@ import Player from "./Player";
 import ViewDetails from "./viewDetails";
 
 function Main() {
-  const [{ token }, dispatch] = useStateProvider();
+  const [{ token, deviceId }, dispatch] = useStateProvider();
+
+  useEffect(() => {
+    const getDevices = async () => {
+      const response = await axios
+        .get(`https://api.spotify.com/v1/me/player/devices`, {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        })
+        .catch((error) => {
+          // console.log(error);
+          // console.log(error.response.status)
+          if (error.response.status == 401) {
+            window.location = "/";
+          }
+        });
+      console.log(response);
+      const { devices } = response.data;
+      const target = devices.find(
+        (device) => device.name === "Spotify Web Player"
+      );
+      console.log(target);
+      // dispatch({type: reducerCases.SET_DEVICE_ID, deviceId: target.id})
+    };
+    getDevices();
+    console.log(deviceId);
+  }, [token, deviceId]);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -44,6 +72,30 @@ function Main() {
     };
     getUserInfo();
   }, [dispatch, token]);
+
+  const getDevices = async () => {
+      const response = await axios
+        .get(`https://api.spotify.com/v1/me/player/devices`, {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        })
+        .catch((error) => {
+          // console.log(error);
+          // console.log(error.response.status)
+          if (error.response.status == 401) {
+            window.location = "/";
+          }
+        });
+      console.log(response);
+      const { devices } = response.data;
+      const target = devices.find(
+        (device) => device.name === "Spotify Web Player"
+      );
+      console.log(target);
+      // dispatch({type: reducerCases.SET_DEVICE_ID, deviceId: target.id})
+    };
   return (
     <div className="container">
       <Sidebar />
@@ -53,41 +105,15 @@ function Main() {
         </div>
         <div className="body_contents">
           <Routes>
-            <Route index element={<Body />}></Route>
+            <Route index element={<Player />}></Route>
             <Route path={`/search`} element={<Search />}></Route>
-            <Route path={`/player`} element={<Player />}></Route>
+            <Route path={`/playlist`} element={<Body />}></Route>
             <Route path={`/details/:id`} element={<ViewDetails />}></Route>
           </Routes>
           {/* <Body />
             <Search /> */}
         </div>
       </div>
-      {/* <script src="https://sdk.scdn.co/spotify-player.js"></script>
-      <script>
-        {() => {
-          window.onSpotifyWebPlaybackSDKReady = () => {
-            const token = token;
-            const player = new Spotify.Player({
-              name: "Web Playback SDK Quick Start Player",
-              getOAuthToken: (cb) => {
-                cb(token);
-              },
-              volume: 0.5,
-            });
-            // Ready
-            player.addListener("ready", ({ device_id }) => {
-              console.log("Ready with Device ID", device_id);
-            });
-
-            // Not Ready
-            player.addListener("not_ready", ({ device_id }) => {
-              console.log("Device ID has gone offline", device_id);
-            });
-
-            player.connect();
-          };
-        }}
-      </script> */}
     </div>
   );
 }

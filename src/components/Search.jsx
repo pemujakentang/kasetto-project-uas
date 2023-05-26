@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom";
 import cassette_side from "../assets/cassette_side.png";
 import cassette_side_blu from "../assets/cassette_side_blu.png";
 import cassette_side_red from "../assets/cassette_side_red.png";
@@ -23,7 +23,7 @@ function Search() {
     console.log(searchInput);
     var response = await axios
       .get(
-        `https://api.spotify.com/v1/search?q=${searchInput}&type=track%2Cartist%2Cplaylist%2Calbum&limit=8`,
+        `https://api.spotify.com/v1/search?q=${searchInput}&type=track%2Cartist%2Cplaylist%2Calbum&limit=10`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,18 +39,18 @@ function Search() {
         }
       });
     if (response) {
-      console.log(response);
+      // console.log(response);
       var results = response.data;
-      console.log(results);
+      // console.log(results);
       var tracks = results.tracks.items;
       var playlists = results.playlists.items;
       // var albums = results.albums.items;
-      console.log(tracks);
-      console.log(playlists);
+      // console.log(tracks);
+      // console.log(playlists);
       // console.log(albums);
       setRes(results);
       dispatch({ type: reducerCases.SET_SEARCH_RESULTS, searchRes });
-      console.log(searchResults);
+      // console.log(searchResults);
     }
   }
 
@@ -83,16 +83,18 @@ function Search() {
           window.location = "/";
         }
       });
-    if (response.status === 204) {
-      const currentPlaying = {
-        id,
-        name,
-        image,
-      };
-      dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
-      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
-    } else {
-      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    if (response) {
+      if (response.status === 204) {
+        const currentPlaying = {
+          id,
+          name,
+          image,
+        };
+        dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+      } else {
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+      }
     }
   };
   return (
@@ -165,7 +167,7 @@ function Search() {
           {searchRes &&
             searchRes.playlists.items.map((playlist) => {
               return (
-                <NavLink to={`/#access_token=${token}`}>
+                <NavLink to={`/playlist#access_token=${token}`}>
                   <li
                     className="playlist"
                     key={playlist.id}
