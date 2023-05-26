@@ -123,7 +123,7 @@ function Search() {
           {searchRes &&
             searchRes.tracks.items.map((track) => {
               return (
-                <li
+                <li className="viewSong"
                   key={track.id}
                   onClick={() =>
                     playTrack(
@@ -141,7 +141,13 @@ function Search() {
                         src={cassette_side_blu}
                         alt="ini gambar samping kaset"
                       />
+                      <img className="songcover" src={track.album.images[0].url} alt="" />
                       <div className="textside">{track.name}</div>
+                  </div>
+                  <div className="dropdown">
+                    <div className="dropdown-content">
+                      <button>View Details</button>
+                    </div>
                   </div>
                 </li>
               );

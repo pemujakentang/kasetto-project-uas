@@ -4,7 +4,10 @@ import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 
 function PlayerControls(props) {
-  const [{ token, playerState }, dispatch] = useStateProvider();
+  const [
+    { token, playerState, playerStatus, currentlyPlaying, shuffleState },
+    dispatch,
+  ] = useStateProvider();
   const changeTrack = async (type) => {
     await axios
       .post(
@@ -74,15 +77,31 @@ function PlayerControls(props) {
             window.location = "/";
           }
         });
-        console.log("playerstate")
-        console.log(response.data.is_playing);
-        dispatch({
-          type: reducerCases.SET_PLAYER_STATE,
-          playerState:response.data.is_playing
-        });
+      const playerstatus = {
+        is_playing: response.data.is_playing,
+        progress_ms: response.data.progress_ms,
+        repeat_state: response.data.repeat_state,
+        shuffle_state: response.data.shuffle_state,
+      };
+      // console.log("playerstate");
+      // console.log(response.data.is_playing);
+      dispatch({
+        type: reducerCases.SET_PLAYER_STATE,
+        playerState: response.data.is_playing,
+      });
+      // console.log(playerstatus);
+      dispatch({
+        type: reducerCases.SET_PLAYER_STATUS,
+        playerStatus: playerstatus,
+      });
+      dispatch({
+        type: reducerCases.SET_SHUFFLE_STATE,
+        shuffleState: playerstatus.shuffle_state,
+      });
+      // console.log(playerStatus);
     };
     getPlayerState();
-  }, [token, playerState, dispatch]);
+  }, [token, dispatch]);
 
   const changeState = async () => {
     const state = playerState ? "pause" : "play";
@@ -97,9 +116,6 @@ function PlayerControls(props) {
           },
         }
       )
-      .then((response) => {
-        console.log(response);
-      })
       .catch((error) => {
         // console.log(error);
         // console.log(error.response.status)
@@ -113,6 +129,38 @@ function PlayerControls(props) {
     });
   };
 
+  const changeShuffle = async () => {
+    const state = shuffleState;
+    await axios
+      .put(
+        `https://api.spotify.com/v1/me/player/shuffle?state=${!state}`,
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .catch((error) => {
+        // console.log(error);
+        // console.log(error.response.status)
+        if (error.response.status == 401) {
+          window.location = "/";
+        }
+      });
+    // console.log(playerStatus)
+    // console.log(state);
+    playerStatus.shuffle_state = !playerStatus.shuffle_state;
+    dispatch({
+      type: reducerCases.SET_PLAYER_STATUS,
+      playerStatus: playerStatus,
+    });
+    dispatch({
+      type: reducerCases.SET_SHUFFLE_STATE,
+      shuffleState: !shuffleState,
+    });
+  };
   return (
     <div>
       PlayerControls
@@ -130,7 +178,11 @@ function PlayerControls(props) {
         <button onClick={() => changeTrack("next")}>Next</button>
       </div>
       <div className="shuffle">
-        <button>Shuffle</button>
+        {shuffleState ? (
+          <button onClick={() => changeShuffle()}>UnShuffle</button>
+        ) : (
+          <button onClick={() => changeShuffle()}>Shuffle</button>
+        )}
       </div>
     </div>
   );

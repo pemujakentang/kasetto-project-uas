@@ -7,43 +7,46 @@ import "./CurrentTrack.css"
 
 function CurrentTrack(props) {
   const [{ token, currentlyPlaying }, dispatch] = useStateProvider();
+  const getCurrentTrack = async () => {
+    const response = await axios
+      .get(`https://api.spotify.com/v1/me/player/currently-playing`, {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+      .catch((error) => {
+        // console.log(error);
+        // console.log(error.response.status)
+        if (error.response.status == 401) {
+          window.location = "/";
+        }
+      });
+    console.log(response);
+    if (response.data.item != null) {
+      const { item } = response.data;
+      const currentlyPlaying = {
+        id: item.id,
+        name: item.name,
+        image: item.album.images[0].url,
+        artists: item.artists.map((artist) => artist.name),
+      };
+      dispatch({
+        type: reducerCases.SET_PLAYING,
+        currentlyPlaying,
+      });
+      console.log(currentlyPlaying);
+    } else {
+      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
+    }
+  };
   useEffect(() => {
-    const getCurrentTrack = async () => {
-      const response = await axios
-        .get(`https://api.spotify.com/v1/me/player/currently-playing`, {
-          headers: {
-            Authorization: "Bearer " + token,
-            "Content-Type": "application/json",
-          },
-        })
-        .catch((error) => {
-          // console.log(error);
-          // console.log(error.response.status)
-          if (error.response.status == 401) {
-            window.location = "/";
-          }
-        });
-    //   console.log(response);
-      if (response.data.item != null) {
-        const { item } = response.data;
-        const currentlyPlaying = {
-          id: item.id,
-          name: item.name,
-          image: item.album.images[0].url,
-          artists: item.artists.map((artist) => artist.name),
-        };
-        dispatch({
-          type: reducerCases.SET_PLAYING,
-          currentlyPlaying,
-        });
-        // console.log(currentlyPlaying);
-      } else {
-        dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
-      }
-      ;
-    };
+    setInterval(() => {
+      getCurrentTrack()
+    }, 5000);
     getCurrentTrack();
-  });
+  },[token, dispatch]);
+  // getCurrentTrack();
   return (
     <div>
       {currentlyPlaying && (

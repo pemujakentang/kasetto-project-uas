@@ -52,6 +52,30 @@
     width: 2.5rem;
 }
 
+.dropdown{
+  display: none;
+  min-width: 160px;
+}
+.dropdown-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-content button{
+  background-color: black;
+	width: 80%;
+  color:white;
+  border-radius: 25px;
+  height: 3vh;
+  font-size: 2vh;
+  border-color: white transparent;
+}
+
+.viewSong:hover  .dropdown{
+  display: block;
+}
+
 .tracktitle {
   position: absolute;
   top: 55%;

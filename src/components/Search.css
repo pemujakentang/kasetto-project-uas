@@ -63,7 +63,7 @@
   display: inline-block;
 }
 
-.sidetape img {
+.sidetape .cassette_side {
   display: block;
   width: 24rem;
 }
@@ -82,6 +82,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.songcover{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 2.5rem;
 }
 
 @-webkit-keyframes swing {
