@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Login from './components/Login';
 import { useStateProvider } from './utils/StateProvider';
 import { reducerCases } from './utils/Constants';
-import Spotify from './components/Spotify';
+import Main from './components/Spotify';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
 
         <div>
           {
-            token ? <Spotify /> : <Login />
+            token ? <Main /> : <Login />
           }
         </div>
       </BrowserRouter>

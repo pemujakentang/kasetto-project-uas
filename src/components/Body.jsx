@@ -4,6 +4,7 @@ import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 import "./Body.css";
 import cassette_side_blu from "../assets/cassette_side_blu.png";
+import { NavLink } from "react-router-dom";
 
 function Body() {
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] =
@@ -24,7 +25,7 @@ function Body() {
             window.location = "/";
           }
         });
-        console.log(response);
+        // console.log(response);
       const selectedPlaylist = {
         id: response.data.id,
         name: response.data.name,
@@ -41,7 +42,7 @@ function Body() {
         })),
       };
       // console.log(response);
-      console.log(selectedPlaylist)
+      // console.log(selectedPlaylist)
       dispatch({
         type: reducerCases.SET_PLAYLIST,
         selectedPlaylist,
@@ -130,7 +131,9 @@ function Body() {
                   </div>
                   <div className="dropdown">
                     <div className="dropdown-content">
-                      <button>View Details</button>
+                      <NavLink to={`/details/${id}#access_token=${token}`}>
+                        <button>View Details</button>
+                      </NavLink>
                     </div>
                   </div>
                 </li>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 import './Playlists.css'
 import cassette_side from "../assets/cassette_side.png";
+import { NavLink } from "react-router-dom";
 
 function Playlists() {
   const [{ token, playlists}, dispatch] = useStateProvider();
@@ -47,7 +48,8 @@ function Playlists() {
         
         {playlists.map(({ name, id }) => {
           return (
-            <li className="playlist" key={id} onClick={() => changeCurrentPlaylist(id)}>
+            <NavLink to={`/#access_token=${token}`}>
+              <li className="playlist" key={id} onClick={() => changeCurrentPlaylist(id)}>
               <div className="sidetape">
                 <img
                   className="cassette_side"
@@ -57,6 +59,8 @@ function Playlists() {
                 <div className="textside">{name}</div>
               </div>
             </li>
+            </NavLink>
+            
           );
         })}
       </ul>

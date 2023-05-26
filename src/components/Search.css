@@ -34,9 +34,10 @@
 .search_results {
   display: flex;
   list-style-type: none;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   overflow: scroll;
-  max-height: 32rem;
+  max-height: 80vh;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -61,6 +62,7 @@
 .sidetape {
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
 
 .sidetape .cassette_side {
@@ -89,6 +91,45 @@
     top: 15%;
     left: 5%;
     width: 2.5rem;
+}
+
+.dropdownSR{
+  position:relative !important;
+  bottom: 10%;
+  display: none;
+  min-width: 160px;
+  width: 100%;
+  z-index: 0;
+}
+.dropdown-contentSR{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-contentSR a{
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  text-decoration: none;
+}
+
+.dropdown-contentSR button{
+  cursor: pointer ;
+  background-color: #fffffa;
+	width: inherit;
+  color:#2b2b2b;
+  border-end-start-radius: 10px;
+  border-end-end-radius: 10px;
+  height: 3vh;
+  font-size: 2.5vh;
+  font-family: "Handwriting", sans-serif;
+  font-weight:800;
+}
+
+.viewSongSR:hover  .dropdownSR{
+  display: block;
 }
 
 @-webkit-keyframes swing {

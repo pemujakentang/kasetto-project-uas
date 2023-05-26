@@ -1,5 +1,6 @@
 .sidebar {
-  background-color:darksalmon;
+  background-color: rgba(196, 196, 196, 0.7);
+  background-size: contain;
   overflow: hidden;
   background-size: contain;
   height: 100%;
@@ -9,14 +10,17 @@
   left: -250px;
   transition: left 0.3s ease;
   z-index: 1; 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.sidebarVisible {
+.visible {
   left: 0;
 }
 
 .logo {
-  width: 235px;
+  width: 100%;
 }
 
 .toggleButton {

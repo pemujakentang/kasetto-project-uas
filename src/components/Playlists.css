@@ -5,8 +5,8 @@
   overflow: scroll;
   gap: 0.2rem;
   padding: 0.5rem;
-  max-height: 55vh;
-  min-height: 10vh;
+  max-height: 60vh;
+  min-height: 50vh;
   max-width: 100%;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

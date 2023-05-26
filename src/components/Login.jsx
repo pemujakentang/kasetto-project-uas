@@ -18,6 +18,7 @@ function Login() {
       "user-read-playback-position",
       "playlist-read-private",
       "playlist-read-collaborative",
+      "streaming",
     ];
     window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
       " "

@@ -3,21 +3,26 @@
   height: 100vh;
   overflow: hidden;
   display: grid;
+  background-image: linear-gradient(to bottom right, #5e72eb,#ff9190);
 }
-.spotify_body {
+/* .spotify_body {
   display: grid;
-  grid-template-columns: 20vw 80vw;
   background-color: rgb(170, 170, 170);
-}
+} */
 .body_navbar {
-  height: 100%;
-  width: 100%;
   overflow:auto;
   display: flex;
   flex-direction: column;
 }
 
 .body_contents {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .spotify_body{
+    margin-left: 250px;
+  }
 }

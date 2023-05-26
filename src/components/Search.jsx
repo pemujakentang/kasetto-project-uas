@@ -123,30 +123,40 @@ function Search() {
           {searchRes &&
             searchRes.tracks.items.map((track) => {
               return (
-                <li className="viewSong"
-                  key={track.id}
-                  onClick={() =>
-                    playTrack(
-                      track.id,
-                      track.name,
-                      track.album.images[0] ? track.album.images[0].url : null,
-                      track.album.uri,
-                      track.track_number
-                    )
-                  }
-                >
-                  <div className="sidetape">
-                      <img
-                        className="cassette_side"
-                        src={cassette_side_blu}
-                        alt="ini gambar samping kaset"
-                      />
-                      <img className="songcover" src={track.album.images[0].url} alt="" />
-                      <div className="textside">{track.name}</div>
+                <li className="viewSongSR" key={track.id}>
+                  <div
+                    className="sidetape"
+                    onClick={() =>
+                      playTrack(
+                        track.id,
+                        track.name,
+                        track.album.images[0]
+                          ? track.album.images[0].url
+                          : null,
+                        track.album.uri,
+                        track.track_number
+                      )
+                    }
+                  >
+                    <img
+                      className="cassette_side"
+                      src={cassette_side_blu}
+                      alt="ini gambar samping kaset"
+                    />
+                    <img
+                      className="songcover"
+                      src={track.album.images[0].url}
+                      alt=""
+                    />
+                    <div className="textside">{track.name}</div>
                   </div>
-                  <div className="dropdown">
-                    <div className="dropdown-content">
-                      <button>View Details</button>
+                  <div className="dropdownSR">
+                    <div className="dropdown-contentSR">
+                      <NavLink
+                        to={`/details/${track.id}#access_token=${token}`}
+                      >
+                        <button>View Details</button>
+                      </NavLink>
                     </div>
                   </div>
                 </li>

@@ -9,8 +9,9 @@ import { reducerCases } from "../utils/Constants";
 import Search from "./Search";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import Player from "./Player";
+import ViewDetails from "./viewDetails";
 
-function Spotify() {
+function Main() {
   const [{ token }, dispatch] = useStateProvider();
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function Spotify() {
           if (error.response.status === 401) {
             window.location = "/";
           }
-        });;
+        });
       const userInfo = {
         userId: data.id,
         userUrl: data.external_urls.spotify,
@@ -37,7 +38,7 @@ function Spotify() {
       };
       // console.log(userInfo);
       const pathname = window.location.pathname;
-      console.log("Pathname: "+pathname);
+      console.log("Pathname: " + pathname);
       // window.history.pushState({}, null, "/");
       dispatch({ type: reducerCases.SET_USER, userInfo });
     };
@@ -45,31 +46,50 @@ function Spotify() {
   }, [dispatch, token]);
   return (
     <div className="container">
-
-        <Sidebar />
+      <Sidebar />
+      <div className="spotify_body">
         <div className="body_navbar">
           <Navbar />
-          <div className="body_contents">
-            <Routes>
-              <Route
-                index
-                element={<Body />}
-              ></Route>
-              <Route
-                path={`/search`}
-                element={<Search />}
-              ></Route>
-              <Route
-                path={`/player`}
-                element={<Player />}
-              ></Route>
-            </Routes>
-            {/* <Body />
+        </div>
+        <div className="body_contents">
+          <Routes>
+            <Route index element={<Body />}></Route>
+            <Route path={`/search`} element={<Search />}></Route>
+            <Route path={`/player`} element={<Player />}></Route>
+            <Route path={`/details/:id`} element={<ViewDetails />}></Route>
+          </Routes>
+          {/* <Body />
             <Search /> */}
-          </div>
         </div>
       </div>
+      {/* <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <script>
+        {() => {
+          window.onSpotifyWebPlaybackSDKReady = () => {
+            const token = token;
+            const player = new Spotify.Player({
+              name: "Web Playback SDK Quick Start Player",
+              getOAuthToken: (cb) => {
+                cb(token);
+              },
+              volume: 0.5,
+            });
+            // Ready
+            player.addListener("ready", ({ device_id }) => {
+              console.log("Ready with Device ID", device_id);
+            });
+
+            // Not Ready
+            player.addListener("not_ready", ({ device_id }) => {
+              console.log("Device ID has gone offline", device_id);
+            });
+
+            player.connect();
+          };
+        }}
+      </script> */}
+    </div>
   );
 }
 
-export default Spotify;
+export default Main;

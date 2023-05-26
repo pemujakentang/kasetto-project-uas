@@ -39,6 +39,29 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script> -->
+    <!-- <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        const token = "BQDRhoIjw7vNi3q9hlZXmjavgUdmpAGst1NSBgSdklEqLcm_F3Kl9G3lBFYwLC3GA6r9_bNWnqf7KBbim88yPPe3rA3hc4R8VZHsej13xaeewzae3F80-vXPvyne2Z4MiF_eYjOojr4NH5dTUBNvW-9aJ8Mg8k__vHw6Cuo9AcIz0APJVquEJHnOHOF_OE484fCKUjajNDZQVRZVcgP0wNisxviSgRnbw5Sw45-0oTuZVbu7dGMJJvmnLVdeWd8";
+        const player = new Spotify.Player({
+          name: "Web Playback SDK Quick Start Player",
+          getOAuthToken: (cb) => {
+            cb(token);
+          },
+          volume: 0.5,
+        });
+        // Ready
+        player.addListener("ready", ({ device_id }) => {
+          console.log("Ready with Device ID", device_id);
+        });
+
+        // Not Ready
+        player.addListener("not_ready", ({ device_id }) => {
+          console.log("Device ID has gone offline", device_id);
+        });
+
+        player.connect();
+      };
+    </script> -->
   </body>
 </html>
