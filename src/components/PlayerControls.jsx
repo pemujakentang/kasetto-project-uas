@@ -2,6 +2,18 @@ import React, { useEffect } from "react";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faShuffle,
+  faBackward,
+  faForward,
+  faRepeat,
+  faPowerOff,
+  faPause,
+} from "@fortawesome/free-solid-svg-icons";
+
+import "./PlayerControls.css";
 
 function PlayerControls(props) {
   const [
@@ -220,32 +232,48 @@ function PlayerControls(props) {
   };
   return (
     <div>
-      <div className="playhere">
-        <button onClick={() => PlayHere()}>Play On This Device</button>
+      <div className="player_buttons">
+        <div id="playerControls">
+          <div className="powerButton">
+            <button id="buttonGreen" onClick={() => PlayHere()}>
+              <FontAwesomeIcon icon={faPowerOff} />
+            </button>
+          </div>
+          <div className="state">
+            {playerState ? (
+              <button id="buttonRed" onClick={() => changeState()}>
+                <FontAwesomeIcon icon={faPause} />
+              </button>
+            ) : (
+              <button id="buttonRed" onClick={() => changeState()}>
+                <FontAwesomeIcon icon={faPlay} />
+              </button>
+            )}
+          </div>
+          <div className="shuffle">
+            {shuffleState ? (
+              <button id="buttonBlack" onClick={() => changeShuffle()}>
+                <FontAwesomeIcon
+                  style={{ color: "lightgreen" }}
+                  icon={faShuffle}
+                />
+              </button>
+            ) : (
+              <button id="buttonBlack" onClick={() => changeShuffle()}>
+                <FontAwesomeIcon icon={faShuffle} />
+              </button>
+            )}
+          </div>
+          <div className="prevnext">
+            <button id="buttonBlack" onClick={() => changeTrack("previous")}>
+              <FontAwesomeIcon icon={faBackward} />
+            </button>
+            <button id="buttonBlack" onClick={() => changeTrack("next")}>
+              <FontAwesomeIcon icon={faForward} />
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="state">
-        {playerState ? (
-          <button onClick={() => changeState()}>Pause</button>
-        ) : (
-          <button onClick={() => changeState()}>Play</button>
-        )}
-      </div>
-      <div className="previous">
-        <button onClick={() => changeTrack("previous")}>Prev</button>
-      </div>
-      <div className="next">
-        <button onClick={() => changeTrack("next")}>Next</button>
-      </div>
-      <div className="shuffle">
-        {shuffleState ? (
-          <button onClick={() => changeShuffle()}>UnShuffle</button>
-        ) : (
-          <button onClick={() => changeShuffle()}>Shuffle</button>
-        )}
-      </div>
-      {/* <div className="getDevices">
-        <button onClick={() => getDevices()}>Get Devices</button>
-      </div> */}
     </div>
   );
 }

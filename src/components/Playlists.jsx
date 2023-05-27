@@ -39,7 +39,6 @@ function Playlists() {
   }, [token, dispatch]);
 
   const changeCurrentPlaylist = (selectedPlaylistId)=>{
-    //tambah code buat loop through isi playlist, add all to queue
     dispatch({type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId})
   }
   return (

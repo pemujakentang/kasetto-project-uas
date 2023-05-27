@@ -104,7 +104,6 @@ function Search() {
       // onBlur={() => setIsFocused(false)}
     >
       <div className="search_bar">
-        <FaSearch />
         <input
           className="search_input"
           id="search"
@@ -119,8 +118,13 @@ function Search() {
             }
           }}
         />
+        <FaSearch className="FaSearch"
+          onClick={() => {
+            search();
+          }}
+        />
       </div>
-      <div id="#search_results">
+      <div id="#search_results" className="searchResList">
         <ul className={`search_results ${isFocused ? "visible" : ""}`}>
           {searchRes &&
             searchRes.tracks.items.map((track) => {

@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 25px;
   gap: 0.5rem;
 }
@@ -29,10 +29,17 @@ font-weight: 800;
   outline: none;
 }
 
-/* .search_container:focus + .search_results,
-.search_results.visible {
-  display: flex;
-} */
+.FaSearch{
+  cursor: pointer;
+}
+
+.search_container {
+  max-height: 100%;
+}
+
+.searchResList{
+  height: 100%;
+}
 
 .search_results {
   display: flex;
@@ -40,8 +47,9 @@ font-weight: 800;
   justify-content: center;
   flex-wrap: wrap;
   overflow: scroll;
-  max-height: 80vh;
+  max-height: 75vh;
   padding-top: 1rem;
+  padding-bottom: 1rem;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

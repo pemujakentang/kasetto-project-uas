@@ -1,0 +1,359 @@
+@import url("https://fonts.cdnfonts.com/css/handwriting");
+@import url("https://allfont.net/allfont.css?fonts=digital-7");
+
+.player-container{
+    max-height: 90vh;
+    overflow: scroll !important;
+    -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.player-container::-webkit-scrollbar {
+  display: none;
+}
+
+.player_pos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_full {
+  background-color: #b8afa6;
+  background-image: url("../assets/background_player.png");
+  background-size: contain;
+  height: auto;
+  max-width: 450px;
+  width: 80%;
+  padding-top: 24px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.player_top {
+  display: flex;
+  /* width: 100%; */
+  justify-content: center;
+}
+
+.player_top_container {
+  display: flex;
+  max-height: 180px;
+  width: 100%;
+  /* width: 100%; */
+  justify-content: center;
+}
+
+.player_top_render {
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 90%;
+  /* width: 100%; */
+  justify-content: center;
+  border: 3px groove #b3aaa0;
+  background-color: rgb(173, 166, 158);
+}
+
+.player_container {
+    height: 100%;
+    background-color: #453f3f;
+}
+
+.player_ui-left {
+  float: left;
+  background-color: #453f3f;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_ui-right {
+  float: right;
+  background-color: #141416;
+  
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_cover {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 2px #000000;
+}
+
+.player_cover img {
+width: 85%;
+margin: 0.5rem 0 0.5rem 0;
+}
+
+.player_tapecontain {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_tapedantulisan {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_tapedantulisan img {
+  display: block;
+  width: 100%;
+}
+
+.tape_text {
+  position: absolute;
+  top: 20%;
+  left: 22.5%;
+  width: 70%;
+  color: black;
+  font-size: 120%;
+  font-weight: bold;
+  font-family: "Handwriting", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tape_penyanyi {
+  position: absolute;
+  top: 60%;
+  left: 10%;
+  width: 80%;
+  color: black;
+  font-size: 100%;
+  font-weight: bold;
+  font-family: "Handwriting", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.player_runningtxt {
+  background-color: #3e5545;
+  width: 90%;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 2px #000000;
+}
+
+.marquee {
+  font-family: "Digital-7", sans-serif;
+  font-weight: bold;
+  color: #60f584;
+  border: 3.5px solid #000000;
+}
+
+.player_bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.player_bottomin {
+  width: 87.5%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3.5px solid #49533b;
+}
+
+.player_queue {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(214, 228, 213);
+  border: 3px groove #b3aaa0;
+  box-shadow: inset 0 0 3px #000000;
+}
+
+.player_textq {
+  font-family: "Digital-7", sans-serif;
+  font-weight: bolder;
+  color: #394424;
+  padding-left: 5%;
+  padding-top: 2%;
+  font-size: 25px;
+  border-bottom: 2px solid #394424;
+}
+
+.player_subtextq {
+  font-family: "Digital-7", sans-serif;
+  font-weight: bolder;
+  color: #394424;
+  padding-left: 5%;
+  padding-top: 2%;
+}
+
+.player_queuelist {
+  width: auto;
+  font-family: "Digital-7", sans-serif;
+  font-weight: bolder;
+  font-size: 110%;
+  color: #394424;
+  padding-top: 2%;
+  overflow: auto;
+}
+
+.queue_songlist {
+    height: 200px;
+    list-style-type: none;
+    display: flex;
+    margin: 0 0 3px 0;
+    padding: 0 10px 0 10px;
+  flex-direction: column;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.queue_songlist li{
+    border-bottom: 1px solid #394424;
+}
+
+.queue_songlist::-webkit-scrollbar {
+  display: none;
+}
+
+#titleq {
+  font-size: 15px;
+}
+
+#artistq {
+  font-size: 10.5px;
+}
+
+.player_logo {
+  height: auto;
+  width: 88.5%;
+  height:50px;
+  background-color: #474546;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_logo img {
+    height: 110%;
+}
+
+#playerControls {
+  background: #b8b2ab;
+  margin-top: 0.5rem;
+  float: left;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 5px #000000;
+  padding: 0 5px 0 5px;
+}
+
+#playerControls #buttonRed {
+  position: relative;
+  font-size: 1.2em;
+  background: #ed442f;
+  color: #ffffff;
+  border: 0;
+  border-radius: 5px;
+  border-top: solid 1px #222;
+  width: 60px;
+  margin: 5px 2px;
+  padding: 10px 0px 30px;
+  transition: 0s ease-in;
+  transform-origin: top center;
+}
+
+#playerControls #buttonGreen {
+  position: relative;
+  font-size: 1.2em;
+  background: #25ba5e;
+  color: #ffffff;
+  border: 0;
+  border-radius: 5px;
+  border-top: solid 1px #222;
+  width: 50px;
+  margin: 5px 2px;
+  padding: 10px 0px 30px;
+  transition: 0s ease-in;
+  transform-origin: top center;
+}
+
+#playerControls #buttonBlack {
+  position: relative;
+  font-size: 1.2em;
+  background: #191c21;
+  color: #f7f7f7;
+  border: 0;
+  border-radius: 4px;
+  border-top: solid 1px #222;
+  width: 60px;
+  margin: 5px 2px;
+  padding: 10px 0px 30px;
+  transition: 0s ease-in;
+  transform-origin: top center;
+}
+
+#playerControls button:after {
+  content: " ";
+  height: 4px;
+  width: 80%;
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 10%;
+  border-bottom: solid 1px #222;
+  background: #333333;
+  background: -moz-linear-gradient(top, #333333 0%, #111111 30%, #111111 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #333333 0%,
+    #111111 30%,
+    #111111 100%
+  );
+  background: linear-gradient(to bottom, #333333 0%, #111111 30%, #111111 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#111111',GradientType=0 );
+}
+
+#playerControls button:focus {
+  outline: 0;
+}
+
+#playerControls button:active {
+  opacity: 0.8;
+  transform: perspective(800px) rotatex(-15deg);
+  color: #7b7b7b;
+}
+
+.player_buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
@@ -40,27 +40,47 @@ function CurrentTrack(props) {
       dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
     }
   };
+  
   useEffect(() => {
     const getInterval = setInterval(() => {
       getCurrentTrack();
-    }, 1000);
+    }, 2000);
     getCurrentTrack();
-    return () => clearInterval(getInterval)
+    return () => clearInterval(getInterval);
   }, [token, dispatch]);
   // getCurrentTrack();
   return (
     <div>
       {currentlyPlaying && (
-        <div className="track">
-          <div className="trackimage">
-            <img src={currentlyPlaying.image} alt="current Song" srcset="" />
+        <>
+          <div className="player_top">
+            <div className="player_container">
+              <div className="player_ui-left">
+                <div className="player_cover">
+                  <img
+                    src={
+                      currentlyPlaying.image
+                        ? currentlyPlaying.image
+                        : "https://community.mp3tag.de/uploads/default/original/2X/a/acf3edeb055e7b77114f9e393d1edeeda37e50c9.png"
+                    }
+                    alt="Cover Album"
+                  />
+                </div>
+              </div>
+              <div className="player_ui-right">
+                <div className="player_tapecontain">
+                  <div className="player_tapedantulisan">
+                    <img className="cassette_front" src={tape} alt="Kaset" />
+                    <div className="tape_text">{currentlyPlaying.name}</div>
+                    <div className="tape_penyanyi">
+                      {currentlyPlaying.artists.join(", ")}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="trackinfo">
-            <img className="tapeView" src={tape} alt="" />
-            <h4>{currentlyPlaying.name}</h4>
-            <p>{currentlyPlaying.artists.join(", ")}</p>
-          </div>
-        </div>
+        </>
       )}
     </div>
   );

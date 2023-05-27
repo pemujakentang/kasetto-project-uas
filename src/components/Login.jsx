@@ -35,6 +35,21 @@ function Login() {
   };
   return (
     <div className="login_container">
+      <div className="info_container">
+        <div>
+          Masuk ke{" "}
+          <a target="_blank" href="https://developer.spotify.com/dashboard">
+            https://developer.spotify.com/dashboard
+          </a>{" "}
+        </div>
+        <div>
+          Klik Create App
+        </div>
+        <div>Isi App Name bebas, App Description bebas, Website bebas</div>
+        <div>Isi Redirect URI dengan url website ini</div>
+        <div>Save, kemudian masuk ke Settings (Pojok Kanan Atas)</div>
+        <div>Copy Client ID dan masukkan ke kolom Client ID di sini</div>
+      </div>
       <input
         className="clientid_input"
         id="id_input"

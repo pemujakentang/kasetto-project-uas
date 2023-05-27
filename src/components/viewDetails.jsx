@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useStateProvider } from "../utils/StateProvider";
 import "./viewDetails.css";
 
@@ -51,13 +51,34 @@ function ViewDetails(props) {
         album_image: response.data.album.images[0].url,
         album_name: response.data.album.name,
         release_date: response.data.album.release_date,
-        album_id: response.data.album.id
+        album_id: response.data.album.id,
       };
       console.log(songDetails);
       setDetails(songDetails);
     };
     getSong();
   }, [token, setDetails]);
+
+  const addToQueue = async (uri) => {
+    await axios
+      .post(
+        `https://api.spotify.com/v1/me/player/queue?uri=${uri}`,
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .catch((error) => {
+        // console.log(error);
+        // console.log(error.response.status)
+        if (error.response.status == 401) {
+          window.location = "/";
+        }
+      });
+  };
 
   return (
     <div>
@@ -69,7 +90,9 @@ function ViewDetails(props) {
               <h1>{songDeets.name}</h1>
               <h3>Duration: {songDeets.duration}</h3>
               <div className="artists">
-                <h2><strong>Artists</strong></h2>
+                <h2>
+                  <strong>Artists</strong>
+                </h2>
                 {songDeets.artists.map((artist) => (
                   <h3 className="artist">{artist.name}</h3>
                 ))}
@@ -79,6 +102,16 @@ function ViewDetails(props) {
                 <h3>Name: {songDeets.album_name}</h3>
                 <h3>Type: {songDeets.album_type}</h3>
                 <h3>Release Date: {songDeets.release_date}</h3>
+              </div>
+              <div>
+                <NavLink to={`/#access_token=${token}`}>
+                  <button
+                    className="addtoQ"
+                    onClick={() => addToQueue(songDeets.uri)}
+                  >
+                    Add to Queue
+                  </button>
+                </NavLink>
               </div>
               {/* <div className="actions">
                 <button className="buttonAlbum">

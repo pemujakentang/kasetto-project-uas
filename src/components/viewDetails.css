@@ -4,7 +4,7 @@
 }
 
 .details-container{
-    max-height:85vh;
+    max-height:80vh;
     overflow: scroll;
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
@@ -26,6 +26,7 @@
 .details-container img{
     border-radius: 10px;
     max-width: 100%;
+    max-height: 70vh;
 }
 
 .details-container::-webkit-scrollbar {
@@ -40,6 +41,8 @@
     background-image: url("../assets/paper.jpg");
     padding-left: 5px;
     padding-right: 5px;
+    max-width: 30%;
+    min-width: 24rem;
 }
 
 .details-info h1{
@@ -64,4 +67,28 @@
 
 .album_info h3{
     margin: 0 0 0 0 ;
+}
+
+.addtoQ{
+    border: 2px solid black;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  font-family: "Handwriting", sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  padding: 5px 5px 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.addtoQ:hover {
+  background-color: black;
+  color: antiquewhite;
+}
+
+.addtoQ:active {
+  background-color: grey;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

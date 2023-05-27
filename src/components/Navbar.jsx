@@ -5,32 +5,25 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
-  const [searchInput, setSearchInput] = useState("");
   const [{token,  userInfo }] = useStateProvider();
   // console.log(userInfo);
   return (
     <div className="navbar-container">
-      {/* <div className="search_bar">
-        <FaSearch />
-        <input
-          id="search"
-          type="text"
-          placeholder="Search"
-          onChange={(event) => {
-            setSearchInput(event.target.value);
-            // console.log(searchInput);
-          }}
-        />
-      </div> */}
-      <div>
+      <div className="navSection">
         <NavLink to={`/#access_token=${token}`}>
-          <button id="gotoPlayer">Player</button>
+          <button className="navButton" id="gotoPlayer">
+            Player
+          </button>
         </NavLink>
         <NavLink to={`/search#access_token=${token}`}>
-          <button id="gotoSearch">Search</button>
+          <button className="navButton" id="gotoSearch">
+            Search
+          </button>
         </NavLink>
         <NavLink to={`/playlist#access_token=${token}`}>
-          <button id="gotoBody">View Playlist</button>
+          <button className="navButton" id="gotoBody">
+            View Playlist
+          </button>
         </NavLink>
       </div>
 
