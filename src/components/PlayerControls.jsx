@@ -231,7 +231,7 @@ function PlayerControls(props) {
     }
   };
   return (
-    <div>
+    <div className="player_controls_container">
       <div className="player_buttons">
         <div id="playerControls">
           <div className="powerButton">

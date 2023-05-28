@@ -22,7 +22,7 @@ function CurrentTrack(props) {
           window.location = "/";
         }
       });
-    console.log(response);
+    // console.log(response);
     if (response.data.item != null) {
       const { item } = response.data;
       const currentlyPlaying = {

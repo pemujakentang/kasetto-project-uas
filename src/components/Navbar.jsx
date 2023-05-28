@@ -25,6 +25,11 @@ function Navbar() {
             View Playlist
           </button>
         </NavLink>
+        {/* <NavLink to={`/about#access_token=${token}`}>
+          <button className="navButton" id="gotoAbt">
+            About
+          </button>
+        </NavLink> */}
       </div>
 
       <div className="profileLink">

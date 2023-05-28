@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
-import Body from "./Body";
-import Navbar from "./Navbar";
 import "./Spotify.css";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
-import Search from "./Search";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import Player from "./Player";
 import ViewDetails from "./viewDetails";
+import Sidebar from "./Sidebar";
+import Body from "./Body";
+import Navbar from "./Navbar";
+import Search from "./Search";
+import AboutUs from "./AboutUs";
 
 function Main() {
   const [{ token, deviceId }, dispatch] = useStateProvider();
@@ -74,28 +75,28 @@ function Main() {
   }, [dispatch, token]);
 
   const getDevices = async () => {
-      const response = await axios
-        .get(`https://api.spotify.com/v1/me/player/devices`, {
-          headers: {
-            Authorization: "Bearer " + token,
-            "Content-Type": "application/json",
-          },
-        })
-        .catch((error) => {
-          // console.log(error);
-          // console.log(error.response.status)
-          if (error.response.status == 401) {
-            window.location = "/";
-          }
-        });
-      console.log(response);
-      const { devices } = response.data;
-      const target = devices.find(
-        (device) => device.name === "Spotify Web Player"
-      );
-      console.log(target);
-      // dispatch({type: reducerCases.SET_DEVICE_ID, deviceId: target.id})
-    };
+    const response = await axios
+      .get(`https://api.spotify.com/v1/me/player/devices`, {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+      .catch((error) => {
+        // console.log(error);
+        // console.log(error.response.status)
+        if (error.response.status == 401) {
+          window.location = "/";
+        }
+      });
+    console.log(response);
+    const { devices } = response.data;
+    const target = devices.find(
+      (device) => device.name === "Spotify Web Player"
+    );
+    console.log(target);
+    // dispatch({type: reducerCases.SET_DEVICE_ID, deviceId: target.id})
+  };
   return (
     <div className="container">
       <Sidebar />
@@ -109,9 +110,8 @@ function Main() {
             <Route path={`/search`} element={<Search />}></Route>
             <Route path={`/playlist`} element={<Body />}></Route>
             <Route path={`/details/:id`} element={<ViewDetails />}></Route>
+            <Route path={`/about`} element={<AboutUs />}></Route>
           </Routes>
-          {/* <Body />
-            <Search /> */}
         </div>
       </div>
     </div>

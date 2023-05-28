@@ -21,7 +21,7 @@
 .player_full {
   background-color: #b8afa6;
   background-image: url("../assets/background_player.png");
-  background-size: contain;
+  background-size:100% 100%;
   height: auto;
   max-width: 450px;
   width: 80%;
@@ -274,6 +274,8 @@ margin: 0.5rem 0 0.5rem 0;
   align-items: center;
   box-shadow: inset 0 0 5px #000000;
   padding: 0 5px 0 5px;
+  width: 100%;
+  gap: 5px;
 }
 
 #playerControls #buttonRed {
@@ -284,11 +286,11 @@ margin: 0.5rem 0 0.5rem 0;
   border: 0;
   border-radius: 5px;
   border-top: solid 1px #222;
-  width: 60px;
   margin: 5px 2px;
   padding: 10px 0px 30px;
   transition: 0s ease-in;
   transform-origin: top center;
+  width: 100%;
 }
 
 #playerControls #buttonGreen {
@@ -299,11 +301,11 @@ margin: 0.5rem 0 0.5rem 0;
   border: 0;
   border-radius: 5px;
   border-top: solid 1px #222;
-  width: 50px;
   margin: 5px 2px;
   padding: 10px 0px 30px;
   transition: 0s ease-in;
   transform-origin: top center;
+  width: 100%;
 }
 
 #playerControls #buttonBlack {
@@ -314,11 +316,11 @@ margin: 0.5rem 0 0.5rem 0;
   border: 0;
   border-radius: 4px;
   border-top: solid 1px #222;
-  width: 60px;
   margin: 5px 2px;
   padding: 10px 0px 30px;
   transition: 0s ease-in;
   transform-origin: top center;
+  width: 100%;
 }
 
 #playerControls button:after {
@@ -352,8 +354,39 @@ margin: 0.5rem 0 0.5rem 0;
   color: #7b7b7b;
 }
 
+.player_controls_container{
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
 .player_buttons {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 80%;
+}
+
+.powerButton{
+  width: 16%;
+}
+
+.state{
+  width: 21%;
+}
+
+.shuffle{
+  width: 21%;
+}
+
+.prevnext{
+  width: 42%;
+}
+
+.btnAbt_container a{
+  position: relative;
+}
+
+#btnAbt{
+  margin-left: 5px;
+  position: absolute;
 }

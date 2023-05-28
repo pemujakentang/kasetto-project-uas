@@ -15,12 +15,19 @@ import {
   faRepeat,
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
 function Player(props) {
   const [{ token }] = useStateProvider();
   return (
     <div className="player-container">
-      {/* <Volume/> */}
+      <div className="btnAbt_container">
+        <NavLink to={`/about#access_token=${token}`}>
+          <button className="navButton" id="btnAbt">
+            About Kasetto
+          </button>
+        </NavLink>
+      </div>
       <div className="player_pos">
         <div className="player_full">
           <div className="player_top_container">

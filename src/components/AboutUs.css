@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css?family=Eczar");
+.abt_container {
+  width: 100%;
+  height: 90vh;
+  overflow: scroll !important;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  font-family: "Eczar";
+}
+.app_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 1rem 0 1rem;
+}
+.app_info img {
+  width: 25%;
+  min-width: 250px;
+}
+.app_info_body{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("../assets/paper.jpg");
+    padding: 10px 10px 10px 10px;
+    border-radius: 25px;
+    width: 70%;
+}
+
+.app_info_body a{
+    width: fit-content;
+}
+
+.app_info_body h4{
+    margin: 10px 0 10px 0;
+}
+
+.toGithub{
+    display: flex;
+    justify-content: center;
+}
+
+.dev_header {
+  /* width: 100%; */
+  background-image: url("../assets/tape.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dev_header h1{
+    margin: 0 0 0 0;
+}
+
+.grid_container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-auto-rows: 250px;
+  grid-column-gap: 2.5%;
+  grid-row-gap: 20px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 20px;
+}
+
+.abt_container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  font-family: "Eczar";
+  height: 100%;
+  max-width: 320px;
+  max-height: 220px;
+  background-color: bisque;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+
+.card img {
+  height: 100%;
+  width: 30%;
+  overflow: hidden !important;
+  object-fit: cover;
+}
+
+.cardinfo h2 {
+  margin: 0 0 0 0;
+}
+
+.cardinfo h4 {
+  margin: 0 0 0 0;
+}
+
+.cardinfo h6 {
+  margin: 0 0 0 0;
+}
+
+.cardinfo p {
+  margin: 0 0 0 0;
+}
+
+.cardinfo {
+  width: 67.5%;
+  position: relative;
+}
+
+.c1 {
+  background-image: url("../assets/paper2.jpg");
+  background-size: 100% 100%;
+}
+
+.c2 {
+  background-image: url("../assets/paper3.jpg");
+  background-size: 100% 100%;
+}
+
+.card .socialIcons {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+.card svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}

@@ -28,5 +28,6 @@
 }
 
 .info_container {
+  word-wrap: break-word;
   text-align: center;
 }

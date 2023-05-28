@@ -31,8 +31,8 @@ function Queue(props) {
         name: item.name,
         artists: item.artists.map((artist) => artist.name),
       }));
-      console.log("Queue");
-      console.log(myQueue);
+      // console.log("Queue");
+      // console.log(myQueue);
       setQueue(myQueue);
     }
     //   if (response.data) {

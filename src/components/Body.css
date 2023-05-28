@@ -15,7 +15,7 @@
     justify-content: center;
     text-align: center;
     background-image: url("../assets/tape.png");
-    background-size: contain;
+    background-size: 90% 90%;
     background-repeat: no-repeat;
     background-position: center;
 }

@@ -49,6 +49,11 @@
   gap: 1rem;
 }
 
+.navSection a.active button {
+  background-color: black;
+  color: antiquewhite;
+}
+
 .navButton {
   border: 2px solid black;
   border-radius: 10px;
@@ -62,7 +67,7 @@
 }
 
 .navButton:hover {
-  background-color: black;
+  background-color: rgb(86, 86, 86);
   color: antiquewhite;
 }
 
