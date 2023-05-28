@@ -47,7 +47,7 @@ function AboutUs(props) {
               <h4>00000068324</h4>
               <h4>Jakarta, 29 Apr 2004</h4>
               <h6>bonifasius.martin@student.umn.ac.id</h6>
-              <p>Ada ranting ada kayu,</p>
+              <p>Kancaku kabeh wibu,</p>
               <p>I'm nothing without you.</p>
               <div className="socialIcons">
                 <a
@@ -239,8 +239,7 @@ function AboutUs(props) {
               <h4>00000068198</h4>
               <h4>Jakarta, 25 November 2004</h4>
               <h6>gerard.stefan@student.umn.ac.id</h6>
-              <p>W I B U</p>
-              <p>Watashi Ingin Bersama U</p>
+              <p>p info pacar cosplayer</p>
               <div className="socialIcons">
                 <a target="_blank" href="https://www.instagram.com/thestrixy/">
                   <svg
@@ -332,8 +331,8 @@ function AboutUs(props) {
               <h4>00000068855</h4>
               <h4>Heidelberg, 19 Juli 2004</h4>
               <h6>friedrich.litani@student.umn.ac.id</h6>
-              <p>Satu, dua, tiga buah apel.</p>
-              <p>Aku ganteng 🫶🫶🫶 hehe</p>
+              <p>Sebanyak-banyaknya Kagebunshin No Jutsu Naruto,</p>
+              <p>Masih lebih banyak Aishiteru No Jutsu ku kekamu</p>
               <div className="socialIcons">
                 <a
                   target="_blank"

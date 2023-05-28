@@ -42,13 +42,19 @@ function Login() {
             https://developer.spotify.com/dashboard
           </a>{" "}
         </div>
-        <div>
-          Klik Create App
-        </div>
+        <div>Klik Create App</div>
         <div>Isi App Name bebas, App Description bebas, Website bebas</div>
-        <div>Isi Redirect URI dengan url website ini</div>
+        <div>
+          Isi Redirect URI dengan url "https://kasetto.vercel.app"
+        </div>
         <div>Save, kemudian masuk ke Settings (Pojok Kanan Atas)</div>
         <div>Copy Client ID dan masukkan ke kolom Client ID di sini</div>
+        <br />
+        <div>Agar lebih jelas tonton video berikut: <br />
+          <a href="https://youtu.be/VFCzeEZWUvs">
+            https://youtu.be/VFCzeEZWUvs
+          </a>
+        </div>
       </div>
       <input
         className="clientid_input"
