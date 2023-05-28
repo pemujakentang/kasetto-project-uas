@@ -36,6 +36,7 @@ function Login() {
   return (
     <div className="login_container">
       <div className="info_container">
+        <div><strong>SPOTIFY HARUS PREMIUM</strong></div>
         <div>
           Masuk ke{" "}
           <a target="_blank" href="https://developer.spotify.com/dashboard">
