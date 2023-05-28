@@ -143,8 +143,8 @@ function AboutUs(props) {
               <h4>00000068572</h4>
               <h4>Tangerang, 23 Sep 2004</h4>
               <h6>samuel.maximus@student.umn.ac.id</h6>
-              <p>Buah nangka buah pepaya,</p>
-              <p>Slebew</p>
+              <p>Gitar ku petik bass ku betot</p>
+              <p>Hai nona cantik, you always in my thought</p>
               <div className="socialIcons">
                 <a
                   target="_blank"
@@ -332,8 +332,8 @@ function AboutUs(props) {
               <h4>00000068855</h4>
               <h4>Heidelberg, 19 Juli 2004</h4>
               <h6>friedrich.litani@student.umn.ac.id</h6>
-              <p>Hehe</p>
-              <p>Inilah kita</p>
+              <p>Satu, dua, tiga buah apel.</p>
+              <p>Aku ganteng 🫶🫶🫶 hehe</p>
               <div className="socialIcons">
                 <a
                   target="_blank"
