@@ -1,71 +1,36 @@
-# Getting Started with Create React App
+# [Kasetto](https://github.com/pemujakentang/kasetto-project-uas)
+## Kelas B/Kelompok 3
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Dev Team Keren:
+- Bonifasius Martin Wibawa/[Martin/Bonbon](https://github.com/pemujakentang) (00000068324)
+    - Lead Developer/Coordinator
+    - Script Developer (Spotify Web API & Playback, App Functions)
+- Samuel Maximus Lamere/[Sam](https://github.com/SamuelMaxs)  (00000068572)
+    - Visual Developer (Logo Design, Animation Scripts, Color Design, Visual Scripts)
+- Friedrich Litani Santoso/[Fritz](https://github.com/Friedrich19) (00000068855)
+    - Visual Developer (Asset HTML + CSS)
+    - Asset Creative
+    - Visual Concept
+    - Presentation Banner
+    - Font Selection
+- Gerard Stefan Gani/[Stefan](https://github.com/thestrixy) (00000068198)
+    - Layout Design
+    - Visual & Concept Creative
+    - Visual Developer (General Layout HTML + CSS)
+    - Font Selection
 
-## Available Scripts
+### What is Kasetto?
+Di tengah era digital yang serba canggih, terkadang kita menginginkan nostalgia dari masa lalu. Salah satu cara orang bernostalgia adalah melalui musik. Music player ini bertemakan retro cassette player, melalui music player ini pengguna dapat bernostalgia sensasi mendengarkan musik ala tempo doeloe.
+Kelompok kami memutuskan untuk mengambil topik pemutar lagu online untuk tugas akhir ini. Berangkat dari situ, kami memutuskan untuk membuat pemutar lagu dengan antarmuka bertemakan retro atau jadul, dan kami mengambil bentuk cassette player sebagai tema utama dari antarmuka kami. Nama “Kasetto” sendiri artinya adalah kaset dalam bahasa Jepang, kami memutuskan untuk mengambil nama ini karena banyak pabrikan/merek audio yang asalnya dari Jepang, contohnya seperti Sony, Pioneer, Audio Technica, Casio, dan sebagainya. Tujuan pembuatan proyek ini adalah untuk memberikan rasa-rasa nostalgia menggunakan cassette player, sehingga daya tarik utama dari produk yang dihasilkan adalah antarmuka tematik dan feel ketika menggunakan aplikasi.
+Aplikasi yang kami buat merupakan music player online yang dibuat menggunakan framework React JS dan disambungkan dengan Spotify Web API dan Spotify Web Playback SDK (melalui custom library) untuk audio playback. Aplikasi kami memerlukan login dari Spotify dengan Client ID dari Spotify Developers dan harus menggunakan akun premium. UI yang dibuat mengambil bentuk cassette player dan cassette untuk menunjang tema retro yang diambil. Aplikasi kami di hosting menggunakan layanan gratis dari Vercel dan dapat diakses pada tautan https://kasetto.vercel.app/.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# kasetto-project-uas" 
+### References
+    - https://developer.spotify.com/documentation/web-api
+    - https://github.com/gilbarbara/react-spotify-web-playback
+    - https://www.youtube.com/watch?v=Xcet6msf3eE 
+    - https://github.com/WebDevSimplified/spotify-clone 
+    - https://www.youtube.com/watch?v=ajVcLGEw8Xw 
+    - https://github.com/koolkishan/react-spotify-clone
+    - https://axios-http.com/docs/intro
+    - https://react.dev/reference/react
+    - https://reactrouter.com/en/main
